@@ -9,23 +9,22 @@ class HEKA:
     def gen_rand_decks(self):
     	shuffle(self.deck)
     	
-    def step(self):
+    def ksa(self):
          self.deck.append(self.deck.pop(0))
          self.deck.append(self.deck.pop(0))
          
          self.deck.insert(self.deck[1], self.deck.pop(0))
+         return self.deck[self.deck[0]] % 26
          
     def encrypt_letter(self, letter):
-        self.step()
         num = ord(letter) - 65
-        key = self.deck[self.deck[0]] % 26
+        key = self.ksa()
         num = (num + key) % 26
         return chr(num + 65)
         
     def decrypt_letter(self, letter):
-        self.step()
         num = ord(letter) - 65
-        key = self.deck[self.deck[0]] % 26
+        key = self.ksa()
         num = (num - key)
         return chr(num + 65)
 
@@ -45,6 +44,7 @@ class HEKA:
         
 heka = HEKA()
 heka.gen_rand_decks()
-msg = "HELLOWORLD"
+m = [chr(65)] * 1000000
+msg = "".join(m)
 ctxt = heka.encrypt(msg)
 print(ctxt)
