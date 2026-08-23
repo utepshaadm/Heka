@@ -1,1 +1,25 @@
+Heka Playing Card Cipher
+
+Estimated strength: 225 bits
+
+Card Values
+
+AH = 0, 2H = 1, 3H = 2, 4H = 3, 5H = 4, 6H = 5, 7H = 6, 8H = 7, 9H = 8, 10H = 9, JH = 10, QH = 11, KH = 12, AD = 13, 2D = 14, 3D = 15, 4D = 16, 5D = 17, 6D = 18, 7D = 19, 8D = 20, 9D = 21, 10D = 22, JD = 23, QD = 24, KD = 25
+
+AC = 0, 2C = 1, 3C = 2, 4C = 3, 5C = 4, 6C = 5, 7C = 6, 8C = 7, 9C = 8, 10C = 9, JC = 10, QC = 11, KC = 12, AS = 13, 2S = 14, 3S = 15, 4S = 16, 5S = 17, 6S = 18, 7D = 19, 8S = 20, 9S = 21, 10S = 22, JS = 23, QS = 24, KS = 25
+
+Position Values
+
+AH = 0, 2H = 1, 3H = 2, 4H = 3, 5H = 4, 6H = 5, 7H = 6, 8H = 7, 9H = 8, 10H = 9, JH = 10, QH = 11, KH = 12, AD = 13, 2D = 14, 3D = 15, 4D = 16, 5D = 17, 6D = 18, 7D = 19, 8D = 20, 9D = 21, 10D = 22, JD = 23, QD = 24, KD = 25, AC = 26, 2C = 27, 3C = 28, 4C = 29, 5C = 30, 6C = 31, 7C = 32, 8C = 33, 9C = 34, 10C = 35, JC = 36, QC = 37, KC = 38, AS = 39, 2S = 40, 3S = 41, 4S = 42, 5S = 43, 6S = 44, 7D = 45, 8S = 46, 9S = 47, 10S = 48, JS = 49, QS = 50, KS = 51
+
+Keying procedure:
+
+The entire deck is considered the key. The order is determined by sender and receiver.
+
+Keystream procedure:
+
+With decks facing up, take one card off the front and place it in the rear. Do this again so that we've done this part exactly twice. 
+
+Next, take the first card and place it in the position value of the second card. Lookup the position of the first card and then lookup the result and that result is the keystream card you add to the plaintext module 26. Decryption is simply ciphertext subtracted by the keystream card modulo 26.
+
 
