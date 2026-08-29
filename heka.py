@@ -25,7 +25,7 @@ class HEKA:
     def decrypt_letter(self, letter):
         num = ord(letter) - 65
         key = self.ksa()
-        num = (num - key)
+        num = (num - key) % 26
         return chr(num + 65)
 
     def encrypt(self, letters):
@@ -44,7 +44,7 @@ class HEKA:
         
 heka = HEKA()
 heka.gen_rand_decks()
-m = [chr(65)] * 1000000
+m = [chr(65)] * 100000
 msg = "".join(m)
 ctxt = heka.encrypt(msg)
 print(ctxt)
