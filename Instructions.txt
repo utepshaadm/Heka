@@ -20,6 +20,4 @@ Keystream procedure:
 
 With decks facing up, take one card off the front and place it in the rear. Do this again so that we've done this part exactly twice. 
 
-Next, take the first card and place it in the position value of the second card. Lookup the position of the first card and then lookup the result and that result is the keystream card you add to the plaintext module 26. Decryption is simply ciphertext subtracted by the keystream card modulo 26.
-
-
+Next, take the first card and add it with the plaintext letter modulo 26. Place it in the position value of the second card. Decryption is simply ciphertext subtracted by the keystream card modulo 26.
