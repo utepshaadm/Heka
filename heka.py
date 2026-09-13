@@ -30,6 +30,7 @@ class HEKA:
 
     def encrypt(self, letters):
         ctxt = []
+        Kemp = self.ksa()
         for x in range(len(letters)):
             letter = self.encrypt_letter(letters[x])
             ctxt.append(letter)
@@ -37,6 +38,7 @@ class HEKA:
 
     def decrypt(self, letters):
         ptxt = []
+        Kemp = self.ksa()
         for x in range(len(letters)):
             letter = self.decrypt_letter(letters[x])
             ptxt.append(letter)
