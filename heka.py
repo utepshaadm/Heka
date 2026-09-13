@@ -14,7 +14,7 @@ class HEKA:
          self.deck.append(self.deck.pop(0))
          
          self.deck.insert(self.deck[1], self.deck.pop(0))
-         return self.deck[self.deck[0]] % 26
+         return self.deck[self.deck[self.deck[0]]] % 26
          
     def encrypt_letter(self, letter):
         num = ord(letter) - 65
