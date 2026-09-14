@@ -15,7 +15,7 @@ class HEKA:
          
          self.deck.insert(self.deck[1], self.deck.pop(0))
          
-         return self.deck[self.deck[(self.deck[0] + 1) % 52]] % 26
+         return self.deck[(self.deck[self.deck[0]] + 1) % 52] % 26
          
     def encrypt_letter(self, letter):
         num = ord(letter) - 65
@@ -47,6 +47,5 @@ heka = HEKA()
 heka.gen_rand_decks()
 m = [chr(65)] * 100000
 msg = "".join(m)
-#msg = "AAA"
 ctxt = heka.encrypt(msg)
 print(ctxt)
