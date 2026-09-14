@@ -19,8 +19,6 @@ class HEKA:
          
     def encrypt_letter(self, letter):
         num = ord(letter) - 65
-        key = self.ksa()
-        key = self.ksa()
         num = (num + key) % 26
         return chr(num + 65)
         
