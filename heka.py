@@ -1,4 +1,4 @@
-⁸''' Heka Card Cipher'''
+''' Heka Card Cipher'''
 ''' by KryptoMagick (Karl Zander) '''
 from random import shuffle
 
@@ -14,10 +14,12 @@ class HEKA:
          self.deck.append(self.deck.pop(0))
          
          self.deck.insert(self.deck[1], self.deck.pop(0))
-         return self.deck[self.deck[0]] % 26
+         
+         return self.deck[(self.deck[self.deck[0]] + 1) % 52] % 26
          
     def encrypt_letter(self, letter):
         num = ord(letter) - 65
+        key = self.ksa()
         key = self.ksa()
         num = (num + key) % 26
         return chr(num + 65)
